@@ -12,18 +12,28 @@
 */
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('guest.single');
-});
+// Route::get('/', function () {
+//     return App\Posts::get();
+// });
+
+
+
+// Route::get("/","PostsController@index");
+// Route::get("/posts/create","PostsController@create");
+// Route::post("/posts/store","PostsController@store")->name("storeposts");
+
+
+Route::get("/","ProductController@index");
+Route::get("/products/create","ProductController@create");
+Route::post("/products/store","ProductController@store")->name("storeproducts");
 
 Route::get("/formtogetpostmethod",function(){
-	return view("guest.form");
-});
+	return view("guest.form");});
 
 Route::post("/testrequest",function(Request $request){
-	$data=[
-	"name"=> $request->post()["name"]
-];
+	// $data=[
+	// "name"=> $request->post()["name"]
+// ];
 	return view("guest.table",["newdata"=>$data]);
 
 })->name("posttest");
